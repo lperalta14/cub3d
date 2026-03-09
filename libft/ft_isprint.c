@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 16:51:20 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 19:58:05 by anzarago         ###   ########.fr       */
+/*   Created: 2024/12/04 14:16:16 by anzarago          #+#    #+#             */
+/*   Updated: 2024/12/04 14:16:16 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubed.h"
-
-int main(int argc, char **argv)
+int	ft_isprint(int c)
 {
-	t_scene data;
-	
-	if(argc != 2 || check_file(argv[1]) == FALSE)
-		return(1);
-	data = init(argv[1]);
-	if(!data)
-		return(1);
-	destroy(&data);
-	return(0);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }
+
+// #include <stdio.h>
+// int main ()
+// {
+// 	int a;
+// 	a = ' ';
+// 	printf("%d", ft_isprint(a));
+// 	return (0);
+// }

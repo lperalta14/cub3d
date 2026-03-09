@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 16:51:20 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 19:58:05 by anzarago         ###   ########.fr       */
+/*   Created: 2024/09/30 16:31:51 by anzarago          #+#    #+#             */
+/*   Updated: 2024/12/10 19:23:02 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubed.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+size_t	ft_strlen(const char *str)
 {
-	t_scene data;
-	
-	if(argc != 2 || check_file(argv[1]) == FALSE)
-		return(1);
-	data = init(argv[1]);
-	if(!data)
-		return(1);
-	destroy(&data);
-	return(0);
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i ++;
+	}
+	return (i);
 }

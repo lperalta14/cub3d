@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 16:51:20 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 19:58:05 by anzarago         ###   ########.fr       */
+/*   Created: 2024/12/11 15:24:13 by anzarago          #+#    #+#             */
+/*   Updated: 2024/12/13 18:34:03 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubed.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_scene data;
-	
-	if(argc != 2 || check_file(argv[1]) == FALSE)
-		return(1);
-	data = init(argv[1]);
-	if(!data)
-		return(1);
-	destroy(&data);
-	return(0);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write (fd, &s[i], 1);
+		i++;
+	}
+	write (fd, "\n", 1);
 }
+
+// int main()
+// {
+// 	char *a = "Hola";
+// 	int b = 1;
+// 	ft_putendl_fd(a,b);
+// 	return(0);
+// }

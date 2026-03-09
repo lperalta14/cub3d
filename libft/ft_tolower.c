@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 16:51:20 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 19:58:05 by anzarago         ###   ########.fr       */
+/*   Created: 2024/12/04 14:18:13 by anzarago          #+#    #+#             */
+/*   Updated: 2024/12/04 14:18:13 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubed.h"
-
-int main(int argc, char **argv)
+int	ft_tolower(int c)
 {
-	t_scene data;
-	
-	if(argc != 2 || check_file(argv[1]) == FALSE)
-		return(1);
-	data = init(argv[1]);
-	if(!data)
-		return(1);
-	destroy(&data);
-	return(0);
+	if (c >= 'A' && c <= 'Z')
+		c = c + ('a' - 'A');
+	return (c);
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	int a = 'F';
+// 	printf("%c",ft_tolower(a));
+// 	return (0);
+// }

@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 16:51:20 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 19:58:05 by anzarago         ###   ########.fr       */
+/*   Created: 2024/10/07 12:14:22 by anzarago          #+#    #+#             */
+/*   Updated: 2024/12/16 16:54:24 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubed.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_scene data;
-	
-	if(argc != 2 || check_file(argv[1]) == FALSE)
-		return(1);
-	data = init(argv[1]);
-	if(!data)
-		return(1);
-	destroy(&data);
-	return(0);
+	size_t	i;
+
+	i = 0;
+	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
 }

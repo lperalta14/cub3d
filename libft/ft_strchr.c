@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 16:51:20 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 19:58:05 by anzarago         ###   ########.fr       */
+/*   Created: 2024/12/04 14:17:22 by anzarago          #+#    #+#             */
+/*   Updated: 2024/12/16 16:24:35 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubed.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+char	*ft_strchr(const char *s, int c)
 {
-	t_scene data;
-	
-	if(argc != 2 || check_file(argv[1]) == FALSE)
-		return(1);
-	data = init(argv[1]);
-	if(!data)
-		return(1);
-	destroy(&data);
-	return(0);
+	int				i;
+	unsigned char	uc;
+
+	uc = (unsigned char)c;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == uc)
+		{
+			return ((char *)(&s[i]));
+		}
+		i++;
+	}
+	if (uc == '\0')
+		return ((char *)(&s[i]));
+	return (NULL);
 }
+
+// #include <stdio.h>
+// int main ()
+// {
+//     printf("%s",ft_strchr("hola",'l'));
+//     return(0);
+// }

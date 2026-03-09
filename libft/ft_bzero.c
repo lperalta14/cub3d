@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 16:51:20 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 19:58:05 by anzarago         ###   ########.fr       */
+/*   Created: 2024/12/02 16:17:30 by anzarago          #+#    #+#             */
+/*   Updated: 2024/12/13 13:16:55 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubed.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_bzero(char *s, size_t n)
 {
-	t_scene data;
-	
-	if(argc != 2 || check_file(argv[1]) == FALSE)
-		return(1);
-	data = init(argv[1]);
-	if(!data)
-		return(1);
-	destroy(&data);
-	return(0);
+	ft_memset(s, 0, n);
 }
+// #include <stdio.h>
+
+// int main ()
+// {
+// 	char str[] = "hola que tal?";
+// 	char *test = str;
+// 	ft_bzero(str, 4);
+// 	printf("%s",test);
+// 	return (0);
+// }

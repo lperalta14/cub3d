@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_str_digit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 16:51:20 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 19:58:05 by anzarago         ###   ########.fr       */
+/*   Created: 2025/04/29 19:49:49 by anzarago          #+#    #+#             */
+/*   Updated: 2025/04/29 19:51:56 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubed.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+int	ft_digit(char *str)
 {
-	t_scene data;
-	
-	if(argc != 2 || check_file(argv[1]) == FALSE)
-		return(1);
-	data = init(argv[1]);
-	if(!data)
-		return(1);
-	destroy(&data);
-	return(0);
+	int	i;
+	int	flag;
+
+	i = 0;
+	flag = 0;
+	if (str[i] == '-')
+		i++;
+	while (str[i])
+	{
+		if (str[i] == '.')
+			flag++;
+		else if (!(ft_isdigit(str[i])) || (flag > 1))
+			return (0);
+		i++;
+	}
+	return (1);
 }

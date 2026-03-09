@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 16:51:20 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 19:58:05 by anzarago         ###   ########.fr       */
+/*   Created: 2024/12/03 15:26:55 by anzarago          #+#    #+#             */
+/*   Updated: 2024/12/16 14:59:34 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubed.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_scene data;
-	
-	if(argc != 2 || check_file(argv[1]) == FALSE)
-		return(1);
-	data = init(argv[1]);
-	if(!data)
-		return(1);
-	destroy(&data);
-	return(0);
+	size_t	i;
+
+	if (!src && !dest)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		((char *) dest)[i] = ((char *) src)[i];
+		i++;
+	}
+	return (dest);
 }
+
+// #include <stdio.h>
+// int main ()
+// {
+// 	char str[] = "HOLA QUE TAL";
+// 	char a[] = "    HOooooooooooo";
+// 	ft_memcpy(a, str, 6);
+// 	printf("%s",a);
+// 	return(0);
+// }
