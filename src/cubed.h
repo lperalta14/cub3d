@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:53:49 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 20:15:48 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:52:32 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct scene
 	t_texture texture;
 	t_color floor;
 	t_color ceiling;
+	int		fd;
 }	t_scene;
 
 int	check_file(char *argv);
