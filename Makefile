@@ -44,6 +44,7 @@ $(MLX42_LIB):
 
 $(NAME): $(LIBFTNAME) $(OBJ)
 	$(CC) $(OBJ) $(MLX42_LIB) $(LDFLAGS) $(MLX42_FLAGS) -o $(NAME)
+	#poner wc -l en el obj 
 	@echo "Cub3D compiled successfully!"
 
 $(OBJDIR)/%.o: $(BASEDIR)/%.c
