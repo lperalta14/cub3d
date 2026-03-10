@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 19:57:05 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 20:15:13 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/03/10 19:36:21 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubed.h"
-#include "libft.h"
+#include "../include/cubed.h"
 
 int	check_file(char *argv)
 {

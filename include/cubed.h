@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   cubed.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:53:49 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/09 20:15:48 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/03/10 19:44:42 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBED_H
 # define CUBED_H
+
+# include "../my_lib/includes/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <string.h>
 
 # define TRUE 1
 # define FALSE 0

@@ -52,7 +52,7 @@ all: $(NAME)
 $(NAME) : $(OBJ_DIR) $(OBJS)
 	@echo "$(PINK) $(NAME)...$(NC)"
 	@$(AR) $(NAME) $(OBJS)
-	@echo "   $(GREEN) OK $(NC)"
+	@echo "   $(GREEN) READY $(NC)"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
