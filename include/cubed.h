@@ -42,10 +42,17 @@ typedef struct scene
 	t_texture texture;
 	t_color floor;
 	t_color ceiling;
+	char **map;
 }	t_scene;
 
 int	check_file(char *argv);
-t_scene init(char *argv); //por hacer
+t_scene	init(char *filename); //por hacer
 void destroy(t_scene *data); //por hacer
+
+/* Map validation functions */
+int	valid_char_in_map(char c);
+int	valid_map(t_scene *data);
+int	check_map_closed(t_scene *data);
+int	count_player_pos(t_scene *data);
 
 #endif
