@@ -1,62 +1,75 @@
+# Colors
+RED=\033[0;31m
+GREEN=\033[0;32m
+YELLOW=\033[1;33m
+BLUE=\033[0;34m
+PINK = \033[0;35m
+NC=\033[0m  # (reset)
+
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I$(LIBFTDIR) -I$(HEADERSDIR) -g
-LDFLAGS = -L$(LIBFTDIR) -lft 
+CFLAGS = -Wall -Wextra -Werror -I$(LIBFTDIR) -I$(HEADERSDIR) $(MLX42_INC) -g
+LDFLAGS = -L$(LIBFTDIR) -lft
+MLX42_FLAGS = -ldl -lglfw -pthread -lm
 
+NAME = cubed
 
-NAME = minishell
-
-LIBFTDIR = libft
+LIBFTDIR = my_lib
 LIBFTNAME = $(LIBFTDIR)/libft.a
 
+MLX42_DIR = MLX42
+MLX42_LIB = $(MLX42_DIR)/build/libmlx42.a
+MLX42_INC = -I$(MLX42_DIR)/include
+
 OBJDIR = obj
-
-HEADER_FILES  = \
-		 \
-
-HEADERS = $(addprefix $(HEADERSDIR)/, $(HEADER_FILES))
-
 HEADERSDIR = include
 
-BASEDIR= src
+BASEDIR = src
+
 MAINSRC = \
-		main.c \
+	main.c \
+	check_file.c
+
 
 PARSINDIR = $(BASEDIR)/parsing
 PARSINGSRC = \
-		\
 
-TEXTUREDIR = $(PARSINGDIR)/texture
+TEXTUREDIR = $(PARSINDIR)/texture
 TEXTUREDIRSRC = \
-		\
 
+SRC = \
 	$(addprefix $(BASEDIR)/, $(MAINSRC)) \
 	$(addprefix $(PARSINDIR)/, $(PARSINGSRC)) \
-	$(addprefix $(TEXTUREDIR)/, $(TEXTUREDIRSRC)) \
+	$(addprefix $(TEXTUREDIR)/, $(TEXTUREDIRSRC))
 
-OBJ = $(patsubst $(BASEDIR)/%, $(OBJDIR)/%, $(SRC:.c=.o))
+OBJ = $(patsubst $(BASEDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 
 .PHONY: all clean fclean re
 
-all: $(NAME)
+all: $(MLX42_LIB) $(NAME)
+
+$(MLX42_LIB):
+	@echo "Compiling MLX42..."
+	@mkdir -p $(MLX42_DIR)/build
+	@cd $(MLX42_DIR)/build && cmake .. && make
 
 $(NAME): $(LIBFTNAME) $(OBJ)
-	@$(CC) $(OBJ) $(LDFLAGS) -o $(NAME)
-	@echo "Cub3d compiled successfully!"
+	@$(CC) $(OBJ) $(MLX42_LIB) $(LDFLAGS) $(MLX42_FLAGS) -o $(NAME)
+	@echo "$(GREEN)CCCompiling Cub3d $$(find $(OBJDIR) -type f | wc -l)/$(words $(OBJ)) files\r$(NC)"
+	@echo "$(GREEN)  Cub3D compiled successfully!$(NC)"
 
-$(OBJDIR)/%.o: $(BASEDIR)/%.c $(HEADERS)
+$(OBJDIR)/%.o: $(BASEDIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf "Compiling Cub3d $$(find $(OBJDIR) -type f | wc -l)/$(words $(OBJ)) files\r"
 
 $(LIBFTNAME):
-	@make bonus -s -C $(LIBFTDIR)
+	@make --no-print-directory -C $(LIBFTDIR)
 
 clean:
-	@make clean -s -C $(LIBFTDIR)
-	@rm -f $(OBJ)
+	@make --no-print-directory clean -C $(LIBFTDIR)
+	@rm -rf $(OBJDIR)
 
 fclean: clean
-	@make fclean -s -C $(LIBFTDIR)
+	@make --no-print-directory fclean -C $(LIBFTDIR)
 	@rm -f $(NAME)
 
 re: fclean all

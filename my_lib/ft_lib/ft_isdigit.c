@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 16:51:20 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/10 20:07:32 by lperalta         ###   ########.fr       */
+/*   Created: 2025/04/22 11:19:52 by lperalta          #+#    #+#             */
+/*   Updated: 2026/01/23 14:28:01 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cubed.h"
+#include "../includes/libft.h"
 
-int main(int argc, char **argv)
+int	ft_issign(int c)
 {
-	int fd;
-	//t_scene data;
-	
-	if(argc != 2)
-		return(1);
-	fd = open(argv[1], O_RDONLY);
-	if(fd < 0 || check_file(argv[1]) == FALSE)
-		return(1); //cambiar return por función de error con mensaje personalizado y cerrar fd	
-	/*data = init(argv[1]);
-	if(!data)
-		return(1);
-	destroy(&data);*/
-	return(0);
+	if (c != 43 && c != 45)
+		return (0);
+	return (1);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }
