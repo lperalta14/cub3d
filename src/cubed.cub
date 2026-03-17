@@ -1,7 +1,9 @@
 NO ./texture/tile_40.png
+F 220,100,0
 SO ./texture/tile_53.png
 WE ./teture/tile/105.png
+C 225,30,0
 EA ./texture/tile/131.png
 
-F 220,100,0
-C 225,30,0
+
+1111111111111111111111
