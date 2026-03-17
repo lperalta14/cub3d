@@ -6,7 +6,7 @@
 /*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 20:21:35 by lperalta          #+#    #+#             */
-/*   Updated: 2026/03/17 15:54:37 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/03/17 16:23:42 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static void	read_line_and_parse(int fd, t_scene *data, char *line)
 	(void)line;
 	(void)fd;
 	line = get_next_line(fd);
+	
 }
 static void	init_data(t_scene *data)
 {
@@ -67,7 +68,7 @@ static void	init_data(t_scene *data)
 	data->texture.east = NULL;
 	data->map = NULL;
 }
-
+free(data->texture.north);
 t_scene	init(char *filename)
 {
 	t_scene	*data;
@@ -92,6 +93,8 @@ t_scene	init(char *filename)
 	if (!data->texture.north || !data->texture.south 
 		|| !data->texture.west || !data->texture.east)
 		error_exit("Missing textures\n", data);
+	if (colores)
+		error_exit("Missing colors\n", data);
 	if (!data->map)
 		error_exit("No map found\n", data);
 	return (*data);
