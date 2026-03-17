@@ -10,7 +10,8 @@ by nosotros
 5º limpiamos
 6º salimos
 
-3- leer el mapa. ver texturas. ver todo el parseo del mapa con 1 y  0 y demás
+3- leer el mapa, empezar a leer y comprobar texturas, una vez que se comprueban las texturas pasar el fd para seguir leyendo desde donde está para comprobar que lo que queda no es diferente de 0, 1 
+, \n, ' ' o inicio del personaje. Una vez comprobado eso cerrar el fd.
 
 4- matematicas y raycasting
 

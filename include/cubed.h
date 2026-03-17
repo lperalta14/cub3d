@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:53:49 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/17 15:42:55 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/03/17 18:32:39 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,20 @@ typedef struct color
 
 typedef struct scene
 {
+	char **map;
 	t_texture texture;
 	t_color floor;
 	t_color ceiling;
-	int		fd;
 }	t_scene;
 
 int	check_file(char *argv);
-int init_data(t_scene *data, char *file);
-void clean_data(t_scene *data); //por hacer
+t_scene	init(char *filename); //por hacer
+void destroy(t_scene *data); //por hacer
+
+/* Map validation functions */
+int	valid_char_in_map(char c);
+int	valid_map(t_scene *data);
+int	check_map_closed(t_scene *data);
+int	count_player_pos(t_scene *data);
 
 #endif
