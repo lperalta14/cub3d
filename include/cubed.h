@@ -6,7 +6,7 @@
 /*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:53:49 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/10 19:44:42 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/03/10 20:26:17 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct color
 
 typedef struct scene
 {
+	char **map;
 	t_texture texture;
 	t_color floor;
 	t_color ceiling;
