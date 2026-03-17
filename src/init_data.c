@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 20:21:35 by lperalta          #+#    #+#             */
-/*   Updated: 2026/03/17 18:32:46 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/03/17 20:00:24 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,6 @@ static void	error_exit(char *msg, t_scene *data)
 	exit(1);
 }
 
-void	destroy(t_scene *data)
-{
-	int	i;
-
-	if (!data)
-		return ;
-	if (data->texture.north)
-		free(data->texture.north);
-	if (data->texture.south)
-		free(data->texture.south);
-	if (data->texture.west)
-		free(data->texture.west);
-	if (data->texture.east)
-		free(data->texture.east);
-	if (data->map)
-	{
-		ft_freematrix(data->map);
-		/*i = 0;
-		while (data->map[i])
-		{
-			free(data->map[i]);
-			i++;
-		}
-		free(data->map);*/
-	}
-	free(data);
-}
 
 static void	read_line_and_parse(int fd, t_scene *data, char *line)
 {
@@ -57,30 +30,46 @@ static void	read_line_and_parse(int fd, t_scene *data, char *line)
 	line = get_next_line(fd);
 	
 }
-static void	init_data(t_scene *data)
+static t_scene *init_texture(t_scene *data)
 {
-	data = (t_scene *)malloc(sizeof(t_scene));
-	if (!data)
-		error_exit("Memory allocation failed\n", data);
-	data->texture.north = NULL;
-	data->texture.south = NULL;
-	data->texture.west = NULL;
-	data->texture.east = NULL;
-	data->map = NULL;
+	data->texture.north.path = NULL;
+	data->texture.north.wall = NULL;
+	data->texture.south.path = NULL;
+	data->texture.south.wall = NULL;
+	data->texture.west.path = NULL;
+	data->texture.west.wall = NULL;
+	data->texture.east.path = NULL;
+	data->texture.east.wall = NULL;
+
+	return (data);	
 }
-free(data->texture.north);
+
+
+int	exist_texture(t_texture *direction)
+{
+	if (!direction)
+		return (FALSE);
+	if (!direction->path || !direction->wall)
+		return (FALSE);
+	return (TRUE);
+}
+
 t_scene	init(char *filename)
 {
 	t_scene	*data;
 	int		fd;
 	char	*line;
-
+		
 	if (!filename)
-		error_exit("Filename is NULL\n", data);
+		error_exit("Filename is NULL\n", NULL);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0 || check_file(filename) == FALSE)
-		error_exit("Cannot open file\n", data);
-	init_data(&data);
+		error_exit("Cannot open file\n", NULL);
+	data = (t_scene *)malloc(sizeof(t_scene));
+	if (!data)
+		error_exit("Memory allocation failed\n", NULL);
+	data = init_texture(data);
+	data->map = NULL;
 	while (1)
 	{
 		line = NULL;
@@ -90,11 +79,11 @@ t_scene	init(char *filename)
 		free(line);
 	}
 	close(fd);
-	if (!data->texture.north || !data->texture.south 
-		|| !data->texture.west || !data->texture.east)
+	if (!exist_texture(&data->texture.north) || !exist_texture(&data->texture.south)
+		|| !exist_texture(&data->texture.west) || !exist_texture(&data->texture.east))
 		error_exit("Missing textures\n", data);
-	if (colores)
-		error_exit("Missing colors\n", data);
+	//if (colors)
+		//error_exit("Missing colors\n", data);
 	if (!data->map)
 		error_exit("No map found\n", data);
 	return (*data);

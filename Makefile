@@ -27,23 +27,25 @@ BASEDIR = src
 
 MAINSRC = \
 	main.c \
-	check_file.c \
 	init_data.c
 
 PARSINDIR = $(BASEDIR)/parsing
 PARSINGSRC = \
+	check_file.c \
+	read_map.c \
 
-UTILS = \
-	utils/valid_char_in_map.c
+UTILSDIR = $(BASEDIR)/utils
+UTILSSRC = \
+	valid_char_in_map.c \
+	clean_data.c \
 
 TEXTUREDIR = $(PARSINDIR)/texture
 TEXTUREDIRSRC = \
 
 SRC = \
 	$(addprefix $(BASEDIR)/, $(MAINSRC)) \
-	$(addprefix $(BASEDIR)/, $(UTILS)) \
+	$(addprefix $(UTILSDIR)/, $(UTILSSRC)) \
 	$(addprefix $(PARSINDIR)/, $(PARSINGSRC)) \
-	$(addprefix $(TEXTUREDIR)/, $(TEXTUREDIRSRC))
 
 OBJ = $(patsubst $(BASEDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 

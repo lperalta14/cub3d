@@ -15,7 +15,6 @@
 
 int	main(int argc, char **argv)
 {
-	int		fd;
 	t_scene	data;
 
 	if (argc != 2)
