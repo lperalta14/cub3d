@@ -20,13 +20,9 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (ft_printf("1"));
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0 || check_file(argv[1]) == FALSE)
-		return (ft_printf("1"));
-	close(fd);
 	data = init(argv[1]);
-	if (!data.map)
-		return (ft_printf("1"));
+	//if (!data.map)
+		//return (ft_printf("1"));
 	destroy(&data);
 	return (0);
 }

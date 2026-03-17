@@ -1,7 +1,9 @@
 NO ./texture/tile_40.png
 SO ./texture/tile_53.png
 WE ./texture/tile_105.png
+WE ./texture/tile_105.png
 EA ./texture/tile_131.png
 
 F 220,100,0
 C 225,30,0
+
