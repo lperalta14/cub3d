@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:44:55 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/17 20:05:02 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/03/23 17:44:42 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,4 @@ void	destroy(t_scene *data)
 		}
 		free(data->map);*/
 	}
-	free(data);
 }

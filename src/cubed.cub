@@ -1,7 +1,5 @@
 NO ./texture/tile_40.png
-F 220,100,0
 SO ./texture/tile_53.png
-WE ./texture/tile_105.png
 WE ./texture/tile_105.png
 EA ./texture/tile_131.png
 

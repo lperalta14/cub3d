@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 20:21:35 by lperalta          #+#    #+#             */
-/*   Updated: 2026/03/17 20:00:24 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:18:50 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,49 @@ static void	error_exit(char *msg, t_scene *data)
 	exit(1);
 }
 
-
-static void	read_line_and_parse(int fd, t_scene *data, char *line)
+static int	in_data_texture(char *line, t_texture *direction)
 {
-	(void)data;
-	(void)line;
-	(void)fd;
-	line = get_next_line(fd);
+	char *clean_path;
 	
+	if(direction->path || direction->wall)
+		return(FALSE);
+	clean_path = ft_strtrim(line, " \t\n");
+	if(!clean_path)
+		return(FALSE);
+	direction->path = clean_path;
+	direction->wall = mlx_load_png(clean_path);
+	if(!direction->wall)
+	{
+		free(direction->path);
+		direction->path = NULL;
+		return(FALSE);
+	}
+	return(TRUE);
+}
+
+static int	read_line_and_parse(int fd, t_scene *data, char *line)
+{
+	int  	i;
+
+	i = 0;
+	if (!line)
+		return(TRUE);
+	line = get_next_line(fd);
+	if(line[i] && ft_isspace(line[i]))
+		i++;
+	if(!line[i])
+		return(TRUE);
+	if(!ft_strncmp("NO", line, 2))
+		return(in_data_texture(line, &data->texture.north));
+	if(!ft_strncmp("SO", line, 2))
+		return(in_data_texture(line, &data->texture.south));
+	if(!ft_strncmp("WE", line, 2))
+		return(in_data_texture(line, &data->texture.west));
+	if(!ft_strncmp("EA", line, 2))
+		return(in_data_texture(line, &data->texture.east));
+	else
+		return(check_map_closed(data));//no sé si esto iría así
+	return(TRUE);
 }
 static t_scene *init_texture(t_scene *data)
 {
@@ -40,7 +75,6 @@ static t_scene *init_texture(t_scene *data)
 	data->texture.west.wall = NULL;
 	data->texture.east.path = NULL;
 	data->texture.east.wall = NULL;
-
 	return (data);	
 }
 
@@ -73,7 +107,11 @@ t_scene	init(char *filename)
 	while (1)
 	{
 		line = NULL;
-		read_line_and_parse(fd, data, line);
+		if(read_line_and_parse(fd, data, line)== FALSE)
+		{
+			free(line);
+			error_exit("Problem in file .cub\n", data);
+		}
 		if (!line)
 			break ;
 		free(line);
