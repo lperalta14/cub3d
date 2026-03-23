@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 20:21:35 by lperalta          #+#    #+#             */
-/*   Updated: 2026/03/23 18:18:50 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:25:46 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,13 @@ static int	in_data_texture(char *line, t_texture *direction)
 	return(TRUE);
 }
 
-static int	read_line_and_parse(int fd, t_scene *data, char *line)
+static int	read_line_and_parse(/*int fd,*/ t_scene *data, char *line)
 {
 	int  	i;
-
+	
 	i = 0;
 	if (!line)
 		return(TRUE);
-	line = get_next_line(fd);
 	if(line[i] && ft_isspace(line[i]))
 		i++;
 	if(!line[i])
@@ -106,14 +105,15 @@ t_scene	init(char *filename)
 	data->map = NULL;
 	while (1)
 	{
-		line = NULL;
-		if(read_line_and_parse(fd, data, line)== FALSE)
-		{
-			free(line);
-			error_exit("Problem in file .cub\n", data);
-		}
+		line = get_next_line(fd);
 		if (!line)
 			break ;
+		if(read_line_and_parse(/*fd,*/ data, line)== FALSE)
+		{
+			free(line);
+			close(fd);
+			error_exit("Problem in file .cub\n", data);
+		}
 		free(line);
 	}
 	close(fd);
