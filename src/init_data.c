@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 20:21:35 by lperalta          #+#    #+#             */
-/*   Updated: 2026/03/23 18:25:46 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/03/24 15:27:55 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,24 @@ static int	read_line_and_parse(/*int fd,*/ t_scene *data, char *line)
 	i = 0;
 	if (!line)
 		return(TRUE);
-	if(line[i] && ft_isspace(line[i]))
+	while(line[i] && ft_isspace(line[i]))
 		i++;
 	if(!line[i])
 		return(TRUE);
-	if(!ft_strncmp("NO", line, 2))
-		return(in_data_texture(line, &data->texture.north));
-	if(!ft_strncmp("SO", line, 2))
-		return(in_data_texture(line, &data->texture.south));
-	if(!ft_strncmp("WE", line, 2))
-		return(in_data_texture(line, &data->texture.west));
-	if(!ft_strncmp("EA", line, 2))
-		return(in_data_texture(line, &data->texture.east));
+	if(!ft_strncmp("NO", line + i, 2))
+		return(in_data_texture(line + i + 2, &data->texture.north));
+	if(!ft_strncmp("SO", line + i, 2))
+		return(in_data_texture(line + i + 2, &data->texture.south));
+	if(!ft_strncmp("WE", line + i, 2))
+		return(in_data_texture(line + 2 + i, &data->texture.west));
+	if(!ft_strncmp("EA", line + i, 2))
+		return(in_data_texture(line + 2 + i, &data->texture.east));
+	if(!ft_strncmp("F", line + i, 1))
+		return(in_colors(line + 2 + i, &data->floor));	
+	if(!ft_strncmp("C", line + i, 1))
+		return(in_colors(line + 2 + i, &data->ceiling));
 	else
-		return(check_map_closed(data));//no sé si esto iría así
+		return(check_map_closed(data));//no sé si esto iría así*/
 	return(TRUE);
 }
 static t_scene *init_texture(t_scene *data)
