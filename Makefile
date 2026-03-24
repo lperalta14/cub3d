@@ -27,17 +27,20 @@ BASEDIR = src
 
 MAINSRC = \
 	main.c \
-	init_data.c
 
 PARSINDIR = $(BASEDIR)/parsing
 PARSINGSRC = \
 	check_file.c \
 	read_map.c \
+	init_data.c \
+	texture.c \
+	colors.c \
 
 UTILSDIR = $(BASEDIR)/utils
 UTILSSRC = \
 	valid_char_in_map.c \
-	clean_data.c \
+	clean_and_exit.c \
+	ft_str_digit.c \
 
 TEXTUREDIR = $(PARSINDIR)/texture
 TEXTUREDIRSRC = \
