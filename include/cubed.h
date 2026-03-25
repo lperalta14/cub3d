@@ -19,6 +19,13 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <string.h>
+# include <math.h>
+
+# define TRUE 1
+# define FALSE 0
+
+# define SCREEN_WIDTH 640
+# define SCREEN_HEIGHT 480
 
 # define TRUE 1
 # define FALSE 0
@@ -40,12 +47,26 @@ typedef struct direction
 }	t_direction;
 
 
+typedef struct s_player
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+} t_player;
+
+
 typedef struct scene
 {
 	char		**map;
 	t_direction	texture;
 	int			floor;
 	int			ceiling;
+	mlx_t		*mlx;
+	mlx_image_t	*img;
+	t_player	player;
 }	t_scene;
 
 int		check_file(char *argv);
@@ -69,4 +90,10 @@ int		in_colors(char *line, int *paint);
 
 /*Utls*/
 int		isdigit_str(char *str);
-#endif
+
+/* Raycasting */
+void	init_mlx(t_scene *scene);
+void	init_player(t_scene *scene);
+void	load_textures(t_scene *scene);
+void	render_frame(t_scene *scene);
+void	raycast(t_scene *scene);

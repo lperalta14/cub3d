@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cubed.h"
-#include <fcntl.h>
+#include "../include/cubed.h"#include "../../src/raycasting/raycasting.h"#include <fcntl.h>
 
 static int	read_line_and_parse(t_scene *data, char *line)
 {
@@ -108,6 +107,7 @@ t_scene	init(char *filename)
 		error_exit("Missing textures\n", data);
 	if (data->ceiling < 0 || data->floor < 0)
 		error_exit("Missing colors\n", data);
+	load_textures(data);
 	/*if (!data->map)
 		error_exit("No map found\n", data);*/
 	return (*data);

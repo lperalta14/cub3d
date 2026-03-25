@@ -47,12 +47,11 @@ void	destroy(t_scene *data)
 	if (data->map)
 	{
 		ft_freematrix(data->map);
-		/*i = 0;
-		while (data->map[i])
-		{
-			free(data->map[i]);
-			i++;
-		}
-		free(data->map);*/
+	}
+	if (data->mlx)
+	{
+		if (data->img)
+			mlx_delete_image(data->mlx, data->img);
+		mlx_terminate(data->mlx);
 	}
 }
