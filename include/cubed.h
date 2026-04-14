@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:53:49 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/24 18:52:13 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/14 19:55:40 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct direction
 typedef struct scene
 {
 	char		**map;
+	int			map_lines;
 	t_direction	texture;
 	int			floor;
 	int			ceiling;
@@ -69,4 +70,8 @@ int		in_colors(char *line, int *paint);
 
 /*Utls*/
 int		isdigit_str(char *str);
+
+int create_map(int fd, t_scene *data);
+int manage_map(char *line, t_scene *data);
+
 #endif

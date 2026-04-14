@@ -6,12 +6,35 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 20:21:35 by lperalta          #+#    #+#             */
-/*   Updated: 2026/03/24 20:03:46 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/14 19:05:11 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cubed.h"
 #include <fcntl.h>
+
+static	int check_premap(t_scene *data)
+{
+	int i;
+	
+	i = 0;
+	if(data->ceiling)
+		i++;
+	if(data->floor)
+		i++;
+	if(exist_texture(&data->texture.east))
+		i++;
+	if(exist_texture(&data->texture.west))
+		i++;
+	if(exist_texture(&data->texture.south))
+		i++;
+	if(exist_texture(&data->texture.north))
+		i++;
+	if(i == 6)
+		return(TRUE);
+	else
+		return(FALSE);
+}
 
 static int	read_line_and_parse(t_scene *data, char *line)
 {
@@ -32,8 +55,13 @@ static int	read_line_and_parse(t_scene *data, char *line)
 		return(in_colors(line + 2 + i, &data->floor));	
 	if(!ft_strncmp("C", line + i, 1))
 		return(in_colors(line + 2 + i, &data->ceiling));
-	/*else
-		return(check_map_closed(data));//no sé si esto iría así*/
+	if(check_premap(data))
+	{
+		printf("entra \n");		
+		return(manage_map(line, data));
+	}
+	else
+		printf("nop\n");
 	return(TRUE);
 }
 
@@ -75,7 +103,9 @@ t_scene	init(char *filename)
 	t_scene	*data;
 	int		fd;
 	char	*line;
-		
+	int		flag;
+	
+	flag = 0;
 	if (!filename)
 		error_exit("Filename is NULL\n", NULL);
 	fd = open(filename, O_RDONLY);
@@ -88,6 +118,7 @@ t_scene	init(char *filename)
 	data->map = NULL;
 	data->floor = -1;
 	data->ceiling = -1;
+	data->map_lines = 0;
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -95,11 +126,7 @@ t_scene	init(char *filename)
 			break ;
 		clean_line(line);
 		if(read_line_and_parse(data, line) == FALSE)
-		{
-			free(line);
-			close(fd);
-			error_exit("Problem in file .cub\n", data);
-		}
+			flag = 1;
 		free(line);
 	}
 	close(fd);
@@ -108,7 +135,18 @@ t_scene	init(char *filename)
 		error_exit("Missing textures\n", data);
 	if (data->ceiling < 0 || data->floor < 0)
 		error_exit("Missing colors\n", data);
-	/*if (!data->map)
-		error_exit("No map found\n", data);*/
+	if (!data->map)
+		error_exit("No map found\n", data);
+	if(flag == 1)
+		error_exit("Problem in .cub\n", data); // a revisar
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		error_exit("Cannot open file\n", data);
+	if(!create_map(fd, data))
+	{
+		close(fd);
+		error_exit("Error creating map\n", data);
+	}
+	close(fd);
 	return (*data);
 }
