@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 20:21:35 by lperalta          #+#    #+#             */
-/*   Updated: 2026/04/14 19:05:11 by anzarago         ###   ########.fr       */
+/*   Created: 2026/04/21 18:34:07 by anzarago          #+#    #+#             */
+/*   Updated: 2026/04/21 18:35:55 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cubed.h"
-#include <fcntl.h>
 
 static	int check_premap(t_scene *data)
 {
@@ -135,8 +134,6 @@ t_scene	init(char *filename)
 		error_exit("Missing textures\n", data);
 	if (data->ceiling < 0 || data->floor < 0)
 		error_exit("Missing colors\n", data);
-	if (!data->map)
-		error_exit("No map found\n", data);
 	if(flag == 1)
 		error_exit("Problem in .cub\n", data); // a revisar
 	fd = open(filename, O_RDONLY);
@@ -147,6 +144,8 @@ t_scene	init(char *filename)
 		close(fd);
 		error_exit("Error creating map\n", data);
 	}
+	if (!data->map)
+		error_exit("No map found\n", data);
 	close(fd);
 	return (*data);
 }

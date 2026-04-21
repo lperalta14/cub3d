@@ -30,6 +30,7 @@ int	valid_map(t_scene *data)
 	i = 0;
 	while (data->map[i])
 	{
+		printf("valid\n");
 		j = 0;
 		while (data->map[i][j])
 		{
@@ -42,15 +43,15 @@ int	valid_map(t_scene *data)
 	return (TRUE);
 }
 
-int	count_player_pos(t_scene *data)
+void	count_player_pos(t_scene *data)
 {
 	int	i;
 	int	j;
-	int	count;
+	int	find;
 
 	if (!data || !data->map)
 		return (0);
-	count = 0;
+	find = 0;
 	i = 0;
 	while (data->map[i])
 	{
@@ -59,12 +60,16 @@ int	count_player_pos(t_scene *data)
 		{
 			if (data->map[i][j] == 'N' || data->map[i][j] == 'S' 
 				|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
-				count++;
+				find++;
 			j++;
 		}
 		i++;
 	}
-	return (count);
+	if(find == 1)
+	{
+		data->play_post.row = j;
+		data->play_post.col = i;
+	}
 }
 
 /*static int	is_map_border_cell(t_scene *data, int row, int col)
@@ -78,41 +83,3 @@ int	count_player_pos(t_scene *data)
 	return (TRUE);
 }*/
 
-int	check_map_closed(t_scene *data)
-{
-	int	i;
-	int	j;
-	int	rows;
-	int	cols;
-
-	if (!data || !data->map)
-		return (FALSE);
-	rows = 0;
-	while (data->map[rows])
-		rows++;
-	if (rows == 0)
-		return (FALSE);
-	i = 0;
-	while (data->map[i])
-	{
-		cols = ft_strlen(data->map[i]);
-		j = 0;
-		while (j < cols)
-		{
-			if (data->map[i][j] != '1' && data->map[i][j] != ' ' 
-				&& data->map[i][j] != '\n')
-			{
-				if (i == 0 || i == rows - 1)
-					return (FALSE);
-				if (j == 0 || j == cols - 1)
-					return (FALSE);
-				if (data->map[i - 1][j] == ' ' || data->map[i + 1][j] == ' '
-					|| data->map[i][j - 1] == ' ' || data->map[i][j + 1] == ' ')
-					return (FALSE);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (TRUE);
-}

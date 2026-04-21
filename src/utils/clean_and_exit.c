@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:44:55 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/24 17:25:25 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/21 18:39:31 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	error_exit(char *msg, t_scene *data)
 	exit(1);
 }
 
-void free_texture(t_texture *direction)
+void	free_texture(t_texture *direction)
 {
 	if(!direction)
 		return ;
