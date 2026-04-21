@@ -41,6 +41,7 @@ UTILSSRC = \
 	valid_char_in_map.c \
 	clean_and_exit.c \
 	ft_str_digit.c \
+	clone_map.c \
 
 TEXTUREDIR = $(PARSINDIR)/texture
 TEXTUREDIRSRC = \

@@ -12,6 +12,8 @@
 
 #include "../../include/cubed.h"
 
+//cambiar nombre archivo
+
 int	valid_char_in_map(char c)
 {
 	if (c == '0' || c == '1' || c == 'N' || c == 'S' || c == 'E' || c == 'W' 
@@ -49,8 +51,6 @@ void	count_player_pos(t_scene *data)
 	int	j;
 	int	find;
 
-	if (!data || !data->map)
-		return (0);
 	find = 0;
 	i = 0;
 	while (data->map[i])
@@ -59,16 +59,19 @@ void	count_player_pos(t_scene *data)
 		while (data->map[i][j])
 		{
 			if (data->map[i][j] == 'N' || data->map[i][j] == 'S' 
-				|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
+				|| data->map[i][j] == 'E' || data->map[i][j] == 'W') //crear funcion para reducir
+			{
+				data->play_post.direction = data->map[i][j];
 				find++;
+			}
 			j++;
 		}
 		i++;
 	}
 	if(find == 1)
 	{
-		data->play_post.row = j;
-		data->play_post.col = i;
+		data->play_post.x = j;
+		data->play_post.y = i;
 	}
 }
 

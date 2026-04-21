@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:42:15 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/21 18:50:06 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/21 21:23:04 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ typedef struct direction
 
 typedef struct position
 {
-	int	row;
-	int	col;
+	int		x; //ini a -1
+	int		y;
+	char	direction;
 } t_position;
 
 typedef struct scene
@@ -52,7 +53,8 @@ typedef struct scene
 	t_direction	texture;
 	int			floor;
 	int			ceiling;
-	t_position	play_post;
+	t_position	play_post; //inicializar 
+	bool		valid; //inicializar
 }	t_scene;
 
 //PARSING
@@ -61,7 +63,7 @@ int		in_colors(char *line, int *paint);
 t_scene	init(char *filename);
 int		create_map(int fd, t_scene *data);
 int		manage_map(char *line, t_scene *data);
-void	flood_fill(char **grid, int x, int y, bool *valid);
+void	flood_fill(char **map, int x, int y, t_scene *data);
 int		check_map(t_scene *data);
 int		exist_texture(t_texture *direction);
 int		in_data_texture(char *line, t_texture *direction);
@@ -74,5 +76,6 @@ int		isdigit_str(char *str);
 int		valid_char_in_map(char c);
 int		valid_map(t_scene *data);
 int		count_player_pos(t_scene *data);
+char 	**clone_map(char **map);
 
 #endif
