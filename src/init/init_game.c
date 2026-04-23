@@ -1,6 +1,15 @@
 
 #include "../../include/cubed.h"
 
+
+static void	on_close(void *param)
+{
+	t_game	*game;
+ 
+	game = (t_game *)param;
+	mlx_close_window(game->mlx);
+}
+
 static void	load_one(t_game *game, t_texture *tex, char *label)
 {
 	tex->wall = mlx_load_png(tex->path);
@@ -15,7 +24,7 @@ static void	load_one(t_game *game, t_texture *tex, char *label)
 	}
 }
  
-void	load_textures(t_game *game)
+static void	load_textures(t_game *game)
 {
 	load_one(game, &game->scene->texture.north, "NO");
 	load_one(game, &game->scene->texture.south, "SO");
@@ -40,6 +49,7 @@ int	init_game(t_game *game, t_scene *scene)
 		mlx_terminate(game->mlx);
 		return (0);
 	}
+	mlx_close_hook(game->mlx, on_close, game);
 	load_textures(game);
 	init_player(game);
 	return (1);

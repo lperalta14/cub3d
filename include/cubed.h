@@ -127,7 +127,6 @@ char	**clone_map(char **map);
 //INIT
 void	init_player(t_game *game);
 int		init_game(t_game *game, t_scene *scene);
-void	load_textures(t_game *game);
 
 //RENDER
 void	render_frame(void *param);
