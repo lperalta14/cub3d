@@ -47,15 +47,16 @@ INITSRC = \
 	init_game.c \
 	init_player.c \
 
-#RENDERDIR = $(BASEDIR)/render
-#RENDERSRC = \
-#	render_frame.c \
+RENDERDIR = $(BASEDIR)/render
+RENDERSRC = \
+	render_frame.c \
 	cast_ray.c \
 	draw_column.c \
-	draw_floor_ceiling.c
+	draw_floor_ceiling.c \
+
 
 INPUTDIR = $(BASEDIR)/input
-#INPUTSRC = \
+INPUTSRC = \
 	handle_input.c
 
 # Fuentes comunes (sin parsing)
