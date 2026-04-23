@@ -45,6 +45,6 @@ char **clone_map(char **map)
 		}
 		i++;
 	}
-	map_copy[i] == NULL;
+	map_copy[i] = NULL;
 	return(map_copy);
 }

@@ -121,7 +121,7 @@ void	destroy(t_scene *data);
 int		isdigit_str(char *str);
 int		valid_char_in_map(char c);
 int		valid_map(t_scene *data);
-int		count_player_pos(t_scene *data);
+void	count_player_pos(t_scene *data);
 char	**clone_map(char **map);
 
 //INIT
