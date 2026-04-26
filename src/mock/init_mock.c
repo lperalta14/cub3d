@@ -23,7 +23,7 @@ static char	**build_map(void)
 	map[0] = ft_strdup("11111111111111111111111111111111111111");
 	map[1] = ft_strdup("11111100000000000000000000000000000111");
 	map[2] = ft_strdup("11100000000000000000000000000000111111");
-	map[3] = ft_strdup("11111111111N11111111111111111111111111");
+	map[3] = ft_strdup("11111111111S11111111111111111111111111");
 	map[4] = ft_strdup("11111111111111111111111111111111111111");
 	map[5] = NULL;
 	i = 0;
@@ -57,10 +57,10 @@ t_scene	init(char *filename)
 	data.texture.west.path = ft_strdup("./texture/tile_105.png");
 	data.texture.east.path = ft_strdup("./texture/tile_131.png");
 	data.floor = (220 << 16) | (100 << 8) | 4;
-	data.ceiling = (225 << 16) | (30 << 8) | 4;
+	data.ceiling = (135 << 16) | (206 << 8) | 235;
 	data.play_post.x = 11;
 	data.play_post.y = 3;
-	data.play_post.direction = 'N';
+	data.play_post.direction = 'S';
 	data.valid = true;
 	return (data);
 }
