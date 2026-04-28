@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:42:15 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/21 21:23:04 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/28 20:58:38 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int		in_colors(char *line, int *paint);
 t_scene	init(char *filename);
 int		create_map(int fd, t_scene *data);
 int		manage_map(char *line, t_scene *data);
-void	flood_fill(char **map, int x, int y, t_scene *data);
 int		check_map(t_scene *data);
 int		exist_texture(t_texture *direction);
 int		in_data_texture(char *line, t_texture *direction);
@@ -75,7 +74,8 @@ void	destroy(t_scene *data);
 int		isdigit_str(char *str);
 int		valid_char_in_map(char c);
 int		valid_map(t_scene *data);
-int		count_player_pos(t_scene *data);
+//void	count_player_pos(t_scene *data);
+int		check_map_closed(char **c_map);
 char 	**clone_map(char **map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 20:10:34 by lperalta          #+#    #+#             */
-/*   Updated: 2026/04/20 19:47:48 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/28 21:06:56 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,13 @@ int create_map(int fd, t_scene *data)
 		printf("create maps\n");
 	}
 	data->map[seq] = NULL;
+	for(int j = 0; data->map[j]; j++)
+	{
+		printf("cojo %s\n", data->map[j]);
+	}
 	if(flag == 1)
 		return(FALSE);
-	if(valid_map(data) == TRUE && check_map_closed(data) == TRUE)
+	if(check_map(data) == TRUE)
 		return(TRUE);
 	return(FALSE);
 }

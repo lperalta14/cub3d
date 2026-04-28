@@ -45,36 +45,6 @@ int	valid_map(t_scene *data)
 	return (TRUE);
 }
 
-void	count_player_pos(t_scene *data)
-{
-	int	i;
-	int	j;
-	int	find;
-
-	find = 0;
-	i = 0;
-	while (data->map[i])
-	{
-		j = 0;
-		while (data->map[i][j])
-		{
-			if (data->map[i][j] == 'N' || data->map[i][j] == 'S' 
-				|| data->map[i][j] == 'E' || data->map[i][j] == 'W') //crear funcion para reducir
-			{
-				data->play_post.direction = data->map[i][j];
-				find++;
-			}
-			j++;
-		}
-		i++;
-	}
-	if(find == 1)
-	{
-		data->play_post.x = j;
-		data->play_post.y = i;
-	}
-}
-
 /*static int	is_map_border_cell(t_scene *data, int row, int col)
 {
 	if (!data || !data->map || !data->map[row])

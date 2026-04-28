@@ -35,6 +35,7 @@ PARSINGSRC = \
 	init_data.c \
 	texture.c \
 	colors.c \
+	parse_map.c\
 
 UTILSDIR = $(BASEDIR)/utils
 UTILSSRC = \
