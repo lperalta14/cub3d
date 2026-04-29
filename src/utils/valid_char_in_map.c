@@ -32,7 +32,6 @@ int	valid_map(t_scene *data)
 	i = 0;
 	while (data->map[i])
 	{
-		printf("valid\n");
 		j = 0;
 		while (data->map[i][j])
 		{
@@ -45,14 +44,4 @@ int	valid_map(t_scene *data)
 	return (TRUE);
 }
 
-/*static int	is_map_border_cell(t_scene *data, int row, int col)
-{
-	if (!data || !data->map || !data->map[row])
-		return (FALSE);
-	if (data->map[row][col] == ' ')
-		return (FALSE);
-	if (data->map[row][col] != '1')
-		return (FALSE);
-	return (TRUE);
-}*/
 

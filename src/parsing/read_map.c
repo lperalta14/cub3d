@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 20:10:34 by lperalta          #+#    #+#             */
-/*   Updated: 2026/04/28 21:06:56 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/29 21:13:10 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int manage_map(char *line, t_scene *data)
 		}
 		free(empty_line);
 	}
-	printf("manage maps\n");
 	data->map_lines++;
 	return(TRUE);
 }
@@ -40,8 +39,7 @@ int create_map(int fd, t_scene *data)
 
 	seq = 0;
 	flag = 0;
-	printf("create maps 0\n");
-	data->map = malloc(sizeof(char**) * data->map_lines + 1);
+	data->map = malloc(sizeof(char *) * (data->map_lines + 1));
 	if(!data->map)
 		return(FALSE);
 	while(seq < data->map_lines)
@@ -55,17 +53,11 @@ int create_map(int fd, t_scene *data)
 			seq++;
 		}
 		free(line);
-		printf("create maps\n");
 	}
 	data->map[seq] = NULL;
-	for(int j = 0; data->map[j]; j++)
-	{
-		printf("cojo %s\n", data->map[j]);
-	}
 	if(flag == 1)
 		return(FALSE);
 	if(check_map(data) == TRUE)
 		return(TRUE);
 	return(FALSE);
 }
-//a revisar errores de primera entrada

@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 21:11:41 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/28 21:01:27 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/29 21:22:51 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	height_map(char **map)
 	int i;
 	
 	i = 0;
-	while(map[i] && map)
+	while (map[i])
 		i++;
 	return(i);
 }
@@ -47,13 +47,16 @@ char *map_filled(char *map, int long_max)
 	char	*r_map;
 	int		i;
 
-	i = -1;
-	r_map = malloc(sizeof(char) * long_max + 1);
+	i = 0;
+	r_map = malloc(sizeof(char) * (long_max + 1));
 	if(!r_map)
 		return(NULL);
-	while (map[i++])
+	while (map[i])
+	{
 		r_map[i] = map[i];
-	while(i <= long_max)
+		i++;
+	}
+	while (i < long_max)
 	{
 		r_map[i] = ' ';
 		i++;
@@ -70,16 +73,11 @@ char **clone_map(char **map)
 	int long_max;
 	
 	i = 0;
-	printf("HOLA\n");
-	for(int j = 0; map[j]; j++)
-	{
-		printf("me llega %s\n", map[j]);
-	}
 	if(!map || !*map)
 		return(NULL);
 	rows_nbr = height_map(map);
 	long_max = find_long_map(map);
-	map_copy = malloc(sizeof(char *) * rows_nbr + 1);
+	map_copy = malloc(sizeof(char *) * (rows_nbr + 1));
 	if(!map_copy)
 		return(NULL);
 	while(i < rows_nbr)
