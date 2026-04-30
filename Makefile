@@ -1,10 +1,9 @@
-# Colors
 RED=\033[0;31m
 GREEN=\033[0;32m
 YELLOW=\033[1;33m
 BLUE=\033[0;34m
 PINK = \033[0;35m
-NC=\033[0m  # (reset)
+NC=\033[0m 
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFTDIR) -I$(HEADERSDIR) $(MLX42_INC) -g
@@ -36,6 +35,7 @@ PARSINGSRC = \
 	texture.c \
 	colors.c \
 	parse_map.c\
+	extract_information.c\
 
 UTILSDIR = $(BASEDIR)/utils
 UTILSSRC = \
@@ -43,6 +43,7 @@ UTILSSRC = \
 	clean_and_exit.c \
 	ft_str_digit.c \
 	clone_map.c \
+	remove_isspaces.c\
 
 TEXTUREDIR = $(PARSINDIR)/texture
 TEXTUREDIRSRC = \

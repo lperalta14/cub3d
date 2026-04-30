@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:42:15 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/28 20:58:38 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/30 20:56:49 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,6 @@ typedef struct direction
 	t_texture	east;
 }	t_direction;
 
-typedef struct position
-{
-	int		x; //ini a -1
-	int		y;
-	char	direction;
-} t_position;
-
 typedef struct scene
 {
 	char		**map;
@@ -53,8 +46,6 @@ typedef struct scene
 	t_direction	texture;
 	int			floor;
 	int			ceiling;
-	t_position	play_post; //inicializar 
-	bool		valid; //inicializar
 }	t_scene;
 
 //PARSING
@@ -66,6 +57,8 @@ int		manage_map(char *line, t_scene *data);
 int		check_map(t_scene *data);
 int		exist_texture(t_texture *direction);
 int		in_data_texture(char *line, t_texture *direction);
+int		read_line_and_parse(t_scene *data, char *line);
+t_scene	extr_information(t_scene data, char *filename, int flag);
 
 //UTILS
 void	error_exit(char *msg, t_scene *data);
@@ -77,5 +70,7 @@ int		valid_map(t_scene *data);
 //void	count_player_pos(t_scene *data);
 int		check_map_closed(char **c_map);
 char 	**clone_map(char **map);
+char	*clean_line(char *line);
+
 
 #endif
