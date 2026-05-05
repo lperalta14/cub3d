@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:01:58 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/29 21:18:25 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:48:04 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	cal_row(char **c_map)
 	int	i;
 
 	i = 0;
-	if(!c_map | !*c_map)
+	if(!c_map || !*c_map)
 		return(0);
 	while(c_map[i])
 		i++;
@@ -75,4 +75,4 @@ int check_map(t_scene *data)
 	}
 	ft_freematrix(c_map);
 	return (TRUE);
-}
+	}

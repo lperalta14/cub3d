@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:25:49 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/30 21:26:33 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:48:21 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ int	read_line_and_parse(t_scene *data, char *line)
 		return(in_colors(line + 2 + i, &data->floor));	
 	if(!ft_strncmp("C", line + i, 1))
 		return(in_colors(line + 2 + i, &data->ceiling));
-	//if(check_premap(*data))
-		//return(manage_map(line, data));
+	if(manage_map(line, data) == TRUE)
+		return(TRUE);
 	else
 		return(FALSE);
-	return(TRUE);
+	//return(TRUE);
 }
 
 t_scene	extr_information(t_scene data, char *filename, int flag)

@@ -44,6 +44,7 @@ UTILSSRC = \
 	ft_str_digit.c \
 	clone_map.c \
 	remove_isspaces.c\
+	ft_freematrix_i.c\
 
 TEXTUREDIR = $(PARSINDIR)/texture
 TEXTUREDIRSRC = \

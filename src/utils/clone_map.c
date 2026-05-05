@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 21:11:41 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/29 21:22:51 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:43:00 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char **clone_map(char **map)
 	int long_max;
 	
 	i = 0;
-	if(!map || !*map)
+	if(!map)
 		return(NULL);
 	rows_nbr = height_map(map);
 	long_max = find_long_map(map);
@@ -85,7 +85,7 @@ char **clone_map(char **map)
 		map_copy[i] = map_filled(map[i], long_max);
 		if(!map_copy[i])
 		{
-			ft_freematrix(map_copy);
+			ft_freematrix_i(map_copy, i);
 			return(NULL);
 		}
 		i++;

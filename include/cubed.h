@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:42:15 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/30 20:56:49 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:34:44 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int		valid_map(t_scene *data);
 int		check_map_closed(char **c_map);
 char 	**clone_map(char **map);
 char	*clean_line(char *line);
+void	ft_freematrix_i(char **str, int ind);
 
 
 #endif
