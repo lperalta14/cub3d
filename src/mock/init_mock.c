@@ -52,12 +52,12 @@ t_scene	init(char *filename)
 		return (data);
 	}
 	data.map_lines = 5;
-	data.texture.north.path = ft_strdup("./texture/tile_40.png");
-	data.texture.south.path = ft_strdup("./texture/tile_53.png");
-	data.texture.west.path = ft_strdup("./texture/tile_105.png");
-	data.texture.east.path = ft_strdup("./texture/tile_131.png");
-	data.floor = (220 << 16) | (100 << 8) | 4;
-	data.ceiling = (135 << 16) | (206 << 8) | 235;
+	data.texture.north.path = ft_strdup("./texture/north_pkm.png");
+	data.texture.south.path = ft_strdup("./texture/south_pkm.png");
+	data.texture.west.path = ft_strdup("./texture/west_pkm.png");
+	data.texture.east.path = ft_strdup("./texture/east_pkm.png");
+	data.floor = (123 << 16) | (174 << 8) | 123;
+	data.ceiling = (167 << 16) | (214 << 8) | 255;
 	data.play_post.x = 11;
 	data.play_post.y = 3;
 	data.play_post.direction = 'S';
