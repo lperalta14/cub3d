@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 20:10:34 by lperalta          #+#    #+#             */
-/*   Updated: 2026/05/05 20:45:00 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:25:25 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ int manage_map(char *line, t_scene *data)
 		}
 		free(empty_line);
 	}
+	if (!exist_texture(&data->texture.north) || !exist_texture(&data->texture.south)
+		|| !exist_texture(&data->texture.west) || !exist_texture(&data->texture.east))
+		return(FALSE);
+	if (line[0] != '1')
+		return(FALSE);
 	data->map_lines++;
 	return(TRUE);
 }
@@ -50,7 +55,7 @@ static	int check_premap(t_scene data)
 	if(texture != 0 && colours != 0)
 	{
 		return(TRUE);
-	}
+	}	
 	else
 	{
 		return(FALSE);

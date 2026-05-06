@@ -6,29 +6,12 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:25:49 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/05 20:48:21 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:34:54 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cubed.h"
 
-/*static	int check_premap(t_scene data)
-{
-	int colours;
-	int	texture;
-	
-	colours = 0;
-	texture = 0;
-	if(data.ceiling != -1 && data.floor != -1)
-		colours = 1;
-	if(exist_texture(&data.texture.east) && exist_texture(&data.texture.west) 
-		&& exist_texture(&data.texture.south) && exist_texture(&data.texture.north))
-		texture = 1;
-	if(texture && colours)
-		return(TRUE);
-	else
-		return(FALSE);
-}*/
 
 int	read_line_and_parse(t_scene *data, char *line)
 {
@@ -49,10 +32,8 @@ int	read_line_and_parse(t_scene *data, char *line)
 		return(in_colors(line + 2 + i, &data->floor));	
 	if(!ft_strncmp("C", line + i, 1))
 		return(in_colors(line + 2 + i, &data->ceiling));
-	if(manage_map(line, data) == TRUE)
-		return(TRUE);
 	else
-		return(FALSE);
+		return(manage_map(line, data));
 	//return(TRUE);
 }
 
@@ -67,7 +48,7 @@ t_scene	extr_information(t_scene data, char *filename, int flag)
 	if (data.ceiling < 0 || data.floor < 0)
 		error_exit("Missing colors\n", &data);
 	if(flag == 1)
-		error_exit("Unexpected line in .cub\n", &data); // a revisar
+		error_exit("Unexpected information or structure in .cub\n", &data);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		error_exit("Cannot open file\n", &data);
