@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mock.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperalta <lperalta@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 00:00:00 by lperalta          #+#    #+#             */
-/*   Updated: 2026/04/22 00:00:00 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/06 20:34:34 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ t_scene	init(char *filename)
 	(void)filename;
 	ft_bzero(&data, sizeof(t_scene));
 	data.map = build_map();
-	if (!data.map)
-	{
-		data.valid = false;
-		return (data);
-	}
+	//if (!data.map)
+	//{
+	//	data.valid = false;
+	//	return (data);
+	//}
 	data.map_lines = 5;
 	data.texture.north.path = ft_strdup("./texture/north_pkm.png");
 	data.texture.south.path = ft_strdup("./texture/south_pkm.png");
@@ -61,6 +61,6 @@ t_scene	init(char *filename)
 	data.play_post.x = 11;
 	data.play_post.y = 3;
 	data.play_post.direction = 'S';
-	data.valid = true;
+	//data.valid = true;
 	return (data);
 }

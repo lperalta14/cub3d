@@ -6,7 +6,7 @@
 /*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:42:15 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/06 19:58:31 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/06 20:33:44 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_scene
 	int			floor;
 	int			ceiling;
 	t_position	play_post;
-	bool		valid;
+//	bool		valid;
 }	t_scene;
 
 typedef struct s_player
