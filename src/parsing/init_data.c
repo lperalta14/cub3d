@@ -6,7 +6,7 @@
 /*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:34:07 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/06 20:54:28 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/06 21:03:25 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,9 @@ static void	count_player_pos(t_scene *data)
 				|| data->map[i][j] == 'E' || data->map[i][j] == 'W') //crear funcion para reducir
 			{
 				data->play_post.direction = data->map[i][j];
-				find++;
-			}
-			if(find == 1)
-			{
 				data->play_post.x = j;
 				data->play_post.y = i;
-				printf("j: %d\n i: %d\n", j, i);
+				//printf("j: %d\n i: %d\n", j, i);
 				return ;
 			}
 			j++;
