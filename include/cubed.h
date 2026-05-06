@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubed.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:42:15 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/22 00:00:00 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:58:31 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,11 @@ int		in_colors(char *line, int *paint);
 t_scene	init(char *filename);
 int		create_map(int fd, t_scene *data);
 int		manage_map(char *line, t_scene *data);
-void	flood_fill(char **map, int x, int y, t_scene *data);
 int		check_map(t_scene *data);
 int		exist_texture(t_texture *direction);
 int		in_data_texture(char *line, t_texture *direction);
+int		read_line_and_parse(t_scene *data, char *line);
+t_scene	extr_information(t_scene data, char *filename, int flag);
 
 //UTILS
 void	error_exit(char *msg, t_scene *data);
@@ -121,8 +122,12 @@ void	destroy(t_scene *data);
 int		isdigit_str(char *str);
 int		valid_char_in_map(char c);
 int		valid_map(t_scene *data);
-void	count_player_pos(t_scene *data);
-char	**clone_map(char **map);
+//void	count_player_pos(t_scene *data);
+int		check_map_closed(char **c_map);
+char 	**clone_map(char **map);
+char	*clean_line(char *line);
+void	ft_freematrix_i(char **str, int ind);
+
 
 //INIT
 void	init_player(t_game *game);

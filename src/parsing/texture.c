@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 17:41:41 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/21 18:39:02 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/30 20:12:23 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	in_data_texture(char *line, t_texture *direction)
 		direction->path = NULL;
 		return(FALSE);
 	}
-	printf("Texture loaded: %s\n", direction->path); // a borrar
 	return(TRUE);
 }
 

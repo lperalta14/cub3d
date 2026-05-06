@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 17:46:04 by anzarago          #+#    #+#             */
-/*   Updated: 2026/03/24 20:07:00 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/04/30 20:10:22 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int in_colors(char *line, int *paint)
 	b = parse_colors(ft_atoi(rgb[2]));
 	*paint = get_rgb(r, g, b);
 	ft_freematrix(rgb);
-	printf("Color loaded: %d\n", *paint); // a borrar
 	return(TRUE);
 }
