@@ -6,7 +6,7 @@
 /*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:34:07 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/06 21:03:25 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/08 16:48:58 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static void	count_player_pos(t_scene *data)
 {
 	int	i;
 	int	j;
-	int	find;
+	int count;
 
-	find = 0;
+	count = 0;
 	i = 0;
 	while (data->map[i])
 	{
@@ -26,18 +26,19 @@ static void	count_player_pos(t_scene *data)
 		while (data->map[i][j])
 		{
 			if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
-				|| data->map[i][j] == 'E' || data->map[i][j] == 'W') //crear funcion para reducir
+				|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
 			{
 				data->play_post.direction = data->map[i][j];
 				data->play_post.x = j;
 				data->play_post.y = i;
-				//printf("j: %d\n i: %d\n", j, i);
-				return ;
+				count ++;
 			}
 			j++;
 		}
 		i++;
 	}
+	if (count < 1)
+		error_exit("Player problem", data);
 }
 
 static t_scene prep_init(t_scene data)
