@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 17:46:04 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/30 20:10:22 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/08 17:10:06 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int in_colors(char *line, int *paint)
 	int		g;
 	int		b;
 	
-	if(!line || !paint)
+	if(!line || !paint || *paint != -1)
 		return(FALSE);
 	while(line && (*line == ' ' || *line == '\t'))
 		line++;
