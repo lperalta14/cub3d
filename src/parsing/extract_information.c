@@ -6,11 +6,12 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:25:49 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/06 19:34:54 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/08 16:37:57 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cubed.h"
+
 
 
 int	read_line_and_parse(t_scene *data, char *line)

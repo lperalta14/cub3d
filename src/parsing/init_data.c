@@ -6,12 +6,39 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:34:07 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/06 19:30:53 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/08 16:38:12 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cubed.h"
 
+static void	count_player_pos(t_scene *data)
+{
+	int	i;
+	int	j;
+	int	find;
+
+	find = 0;
+	i = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
+				|| data->map[i][j] == 'E' || data->map[i][j] == 'W') //crear funcion para reducir
+			{
+				data->play_post.direction = data->map[i][j];
+				data->play_post.x = j;
+				data->play_post.y = i;
+				//printf("j: %d\n i: %d\n", j, i);
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
 static t_scene prep_init(t_scene data)
 {
@@ -66,6 +93,7 @@ t_scene	init(char *filename)
 	}
 	close(fd);
 	data = extr_information(data, filename, flag);
+	count_player_pos(&data);
 	return (data);
 }
 
