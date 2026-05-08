@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 17:41:41 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/30 20:12:23 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/08 17:05:19 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	in_data_texture(char *line, t_texture *direction)
 {
 	char *clean_path;
 	
-	if(direction->path || direction->wall)
+	if(exist_texture(direction))
 		return(FALSE);
 	clean_path = ft_strtrim(line, " \t\n");
 	if(!clean_path)
