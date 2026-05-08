@@ -34,7 +34,7 @@ static uint32_t	get_tex_color(mlx_texture_t *tex, int tex_x, double tex_pos)
 	int			tex_y;
 	uint8_t		*pixel;
  
-	tex_y = (int)tex_pos & (tex->height - 1);
+	tex_y = (int)tex_pos % tex->height;
 	pixel = tex->pixels + (tex_y * tex->width + tex_x) * 4;
 	return (pixel[0] << 24 | pixel[1] << 16 | pixel[2] << 8 | pixel[3]);
 }
