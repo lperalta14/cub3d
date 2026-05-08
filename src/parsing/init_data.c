@@ -6,7 +6,7 @@
 /*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:34:07 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/08 16:52:17 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/08 16:56:17 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	count_player_pos(t_scene *data)
 		}
 		i++;
 	}
-	if (count < 1)
+	if (count != 1)
 		error_exit("Player problem", data);
 }
 
