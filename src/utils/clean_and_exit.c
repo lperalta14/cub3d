@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:44:55 by anzarago          #+#    #+#             */
-/*   Updated: 2026/04/21 18:39:31 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/08 16:35:05 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,5 @@ void	destroy(t_scene *data)
 	if (data->map)
 	{
 		ft_freematrix(data->map);
-		/*i = 0;
-		while (data->map[i])
-		{
-			free(data->map[i]);
-			i++;
-		}
-		free(data->map);*/
 	}
 }
