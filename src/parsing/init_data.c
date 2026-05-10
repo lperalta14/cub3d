@@ -87,6 +87,7 @@ t_scene	init(char *filename)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
+		ft_replacechar(line, '\n', '\0');
 		clean_line(line);
 		if(read_line_and_parse(&data, line) == FALSE)
 			flag = 1;

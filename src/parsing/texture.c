@@ -16,7 +16,7 @@ int	exist_texture(t_texture *direction)
 {
 	if (!direction)
 		return (FALSE);
-	if (!direction->path || !direction->wall)
+	if (!direction->path)
 		return (FALSE);
 	return (TRUE);
 }
@@ -31,13 +31,7 @@ int	in_data_texture(char *line, t_texture *direction)
 	if(!clean_path)
 		return(FALSE);
 	direction->path = clean_path;
-	direction->wall = mlx_load_png(clean_path);
-	if(!direction->wall)
-	{
-		free(direction->path);
-		direction->path = NULL;
-		return(FALSE);
-	}
+	direction->wall = NULL;
 	return(TRUE);
 }
 
