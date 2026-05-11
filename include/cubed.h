@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubed.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:42:15 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/06 20:33:44 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/11 21:21:58 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ typedef struct s_texture
 
 typedef struct s_direction
 {
-	t_texture	north;
-	t_texture	south;
-	t_texture	west;
-	t_texture	east;
+	t_texture	n;
+	t_texture	s;
+	t_texture	w;
+	t_texture	e;
 }	t_direction;
 
 typedef struct s_position
@@ -110,7 +110,7 @@ t_scene	init(char *filename);
 int		create_map(int fd, t_scene *data);
 int		manage_map(char *line, t_scene *data);
 int		check_map(t_scene *data);
-int		exist_texture(t_texture *direction);
+int		exist_text(t_texture *direction);
 int		in_data_texture(char *line, t_texture *direction);
 int		read_line_and_parse(t_scene *data, char *line);
 t_scene	extr_information(t_scene data, char *filename, int flag);
@@ -122,12 +122,10 @@ void	destroy(t_scene *data);
 int		isdigit_str(char *str);
 int		valid_char_in_map(char c);
 int		valid_map(t_scene *data);
-//void	count_player_pos(t_scene *data);
 int		check_map_closed(char **c_map);
-char 	**clone_map(char **map);
+char	**clone_map(char **map);
 char	*clean_line(char *line);
 void	ft_freematrix_i(char **str, int ind);
-
 
 //INIT
 void	init_player(t_game *game);

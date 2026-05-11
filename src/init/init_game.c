@@ -26,10 +26,10 @@ static void	load_one(t_game *game, t_texture *tex, char *label)
  
 static void	load_textures(t_game *game)
 {
-	load_one(game, &game->scene->texture.north, "NO");
-	load_one(game, &game->scene->texture.south, "SO");
-	load_one(game, &game->scene->texture.west, "WE");
-	load_one(game, &game->scene->texture.east, "EA");
+	load_one(game, &game->scene->texture.n, "NO");
+	load_one(game, &game->scene->texture.s, "SO");
+	load_one(game, &game->scene->texture.w, "WE");
+	load_one(game, &game->scene->texture.e, "EA");
 }
 
 int	init_game(t_game *game, t_scene *scene)

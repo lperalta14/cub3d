@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 13:15:46 by lperalta          #+#    #+#             */
-/*   Updated: 2025/07/03 11:37:32 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/11 20:00:09 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

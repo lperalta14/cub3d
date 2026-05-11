@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 21:11:41 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/05 20:43:00 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/11 21:16:48 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static int	height_map(char **map)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (map[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 int	find_long_map(char **map)
 {
 	int	i;
 	int	j;
-	int len_max;
+	int	len_max;
 
 	i = 0;
 	len_max = 0;
@@ -39,18 +39,18 @@ int	find_long_map(char **map)
 			len_max = j;
 		i++;
 	}
-	return(len_max);
+	return (len_max);
 }
 
-char *map_filled(char *map, int long_max)
+char	*map_filled(char *map, int long_max)
 {
 	char	*r_map;
 	int		i;
 
 	i = 0;
 	r_map = malloc(sizeof(char) * (long_max + 1));
-	if(!r_map)
-		return(NULL);
+	if (!r_map)
+		return (NULL);
 	while (map[i])
 	{
 		r_map[i] = map[i];
@@ -62,34 +62,34 @@ char *map_filled(char *map, int long_max)
 		i++;
 	}
 	r_map[i] = '\0';
-	return(r_map);
+	return (r_map);
 }
 
-char **clone_map(char **map)
+char	**clone_map(char **map)
 {
-	int rows_nbr;
-	char **map_copy;
-	int i;
-	int long_max;
-	
+	int		rows_nbr;
+	char	**map_copy;
+	int		i;
+	int		long_max;
+
 	i = 0;
-	if(!map)
-		return(NULL);
+	if (!map)
+		return (NULL);
 	rows_nbr = height_map(map);
 	long_max = find_long_map(map);
 	map_copy = malloc(sizeof(char *) * (rows_nbr + 1));
-	if(!map_copy)
-		return(NULL);
-	while(i < rows_nbr)
+	if (!map_copy)
+		return (NULL);
+	while (i < rows_nbr)
 	{
 		map_copy[i] = map_filled(map[i], long_max);
-		if(!map_copy[i])
+		if (!map_copy[i])
 		{
 			ft_freematrix_i(map_copy, i);
-			return(NULL);
+			return (NULL);
 		}
 		i++;
 	}
 	map_copy[i] = NULL;
-	return(map_copy);
+	return (map_copy);
 }

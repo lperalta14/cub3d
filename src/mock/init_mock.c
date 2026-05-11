@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mock.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 00:00:00 by lperalta          #+#    #+#             */
-/*   Updated: 2026/05/07 09:42:19 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:12:46 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ t_scene	init(char *filename)
 	//	return (data);
 	//}
 	data.map_lines = 5;
-	data.texture.north.path = ft_strdup("./texture/north_pkm.png");
-	data.texture.south.path = ft_strdup("./texture/south_pkm.png");
-	data.texture.west.path = ft_strdup("./texture/west_pkm.png");
-	data.texture.east.path = ft_strdup("./texture/east_pkm.png");
+	data.texture.n.path = ft_strdup("./texture/north_pkm.png");
+	data.texture.s.path = ft_strdup("./texture/south_pkm.png");
+	data.texture.w.path = ft_strdup("./texture/west_pkm.png");
+	data.texture.e.path = ft_strdup("./texture/east_pkm.png");
 	data.floor = (123 << 16) | (174 << 8) | 123;
 	data.ceiling = (167 << 16) | (214 << 8) | 255;
 	data.play_post.x = 11;
