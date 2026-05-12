@@ -1,11 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_game.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/12 19:46:28 by lperalta          #+#    #+#             */
+/*   Updated: 2026/05/12 19:46:40 by lperalta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../include/cubed.h"
-
 
 static void	on_close(void *param)
 {
 	t_game	*game;
- 
+
 	game = (t_game *)param;
 	mlx_close_window(game->mlx);
 }
@@ -23,7 +33,7 @@ static void	load_one(t_game *game, t_texture *tex, char *label)
 		exit(1);
 	}
 }
- 
+
 static void	load_textures(t_game *game)
 {
 	load_one(game, &game->scene->texture.n, "NO");

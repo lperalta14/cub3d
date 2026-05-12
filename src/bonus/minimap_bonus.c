@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minimap_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/12 19:42:59 by lperalta          #+#    #+#             */
+/*   Updated: 2026/05/12 19:44:48 by lperalta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
- 
 #include "../../include/cubed_bonus.h"
- 
+
 static void	draw_cell(t_game *game, int px, int py, uint32_t color)
 {
 	int	dx;
 	int	dy;
 	int	sx;
 	int	sy;
- 
+
 	dy = 0;
 	while (dy < MINIMAP_SCALE)
 	{
@@ -24,12 +34,12 @@ static void	draw_cell(t_game *game, int px, int py, uint32_t color)
 		dy++;
 	}
 }
- 
+
 static uint32_t	get_cell_color(t_game *game, int map_x, int map_y)
 {
 	char	**map;
 	int		lines;
- 
+
 	map = game->scene->map;
 	lines = game->scene->map_lines;
 	if (map_y < 0 || map_y >= lines)
@@ -40,13 +50,13 @@ static uint32_t	get_cell_color(t_game *game, int map_x, int map_y)
 		return (0x888888FF);
 	return (0x444444FF);
 }
- 
+
 static void	draw_player_dot(t_game *game, int origin_x, int origin_y)
 {
 	int	cx;
 	int	cy;
 	int	d;
- 
+
 	cx = origin_x + MINIMAP_RADIUS * MINIMAP_SCALE + MINIMAP_SCALE / 2;
 	cy = origin_y + MINIMAP_RADIUS * MINIMAP_SCALE + MINIMAP_SCALE / 2;
 	d = -2;
@@ -57,7 +67,7 @@ static void	draw_player_dot(t_game *game, int origin_x, int origin_y)
 		d++;
 	}
 }
- 
+
 void	draw_minimap(t_game *game)
 {
 	int	map_x;
@@ -65,7 +75,7 @@ void	draw_minimap(t_game *game)
 	int	cell_x;
 	int	cell_y;
 	int	r;
- 
+
 	r = MINIMAP_RADIUS;
 	cell_y = -r;
 	while (cell_y <= r)
@@ -85,4 +95,3 @@ void	draw_minimap(t_game *game)
 	}
 	draw_player_dot(game, 10, 10);
 }
- 

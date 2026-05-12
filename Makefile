@@ -10,8 +10,8 @@ CFLAGS  = -Wall -Wextra -Werror -I$(LIBFTDIR) -I$(HEADERSDIR) $(MLX42_INC) -g
 LDFLAGS = -L$(LIBFTDIR) -lft
 MLX42_FLAGS = -ldl -lglfw -pthread -lm
 
-NAME = cubed
-NAME_BONUS = cubed_bonus
+NAME = cub3D
+NAME_BONUS = cub3D_bonus
 
 LIBFTDIR  = my_lib
 LIBFTNAME = $(LIBFTDIR)/libft.a

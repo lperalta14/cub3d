@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/12 19:42:17 by lperalta          #+#    #+#             */
+/*   Updated: 2026/05/12 19:42:35 by lperalta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/cubed_bonus.h"
- 
+
 int	main(int argc, char **argv)
 {
 	t_scene	scene;
 	t_game	game;
- 
+
 	if (argc != 2)
 	{
 		ft_putstr_fd("Usage: ./cubed_bonus map.cub\n", 2);

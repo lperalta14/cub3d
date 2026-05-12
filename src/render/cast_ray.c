@@ -1,11 +1,21 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cast_ray.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/12 19:39:14 by lperalta          #+#    #+#             */
+/*   Updated: 2026/05/12 19:49:43 by lperalta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../include/cubed.h"
- 
+
 static void	init_ray(t_game *game, t_ray *ray, int x)
 {
 	t_player	*p;
- 
+
 	p = &game->player;
 	ray->cam_x = 2.0 * x / WIN_W - 1.0;
 	ray->rdx = p->dx + p->cx * ray->cam_x;
@@ -22,11 +32,11 @@ static void	init_ray(t_game *game, t_ray *ray, int x)
 		ray->ddy = fabs(1.0 / ray->rdy);
 	ray->hit = 0;
 }
- 
+
 static void	init_step(t_game *game, t_ray *ray)
 {
 	t_player	*p;
- 
+
 	p = &game->player;
 	if (ray->rdx < 0)
 	{
@@ -49,11 +59,11 @@ static void	init_step(t_game *game, t_ray *ray)
 		ray->sdy = (ray->map_y + 1.0 - p->py) * ray->ddy;
 	}
 }
- 
+
 static void	dda_loop(t_game *game, t_ray *ray)
 {
 	char	**map;
- 
+
 	map = game->scene->map;
 	while (ray->hit == 0)
 	{
@@ -73,16 +83,16 @@ static void	dda_loop(t_game *game, t_ray *ray)
 			ray->hit = 1;
 	}
 }
- 
+
 static void	calc_column(t_game *game, t_ray *ray)
 {
 	t_player	*p;
- 
+
 	p = &game->player;
 	if (ray->side == 0)
 		ray->wall_dist = ray->sdx - ray->ddx;
 	else
-		ray->wall_dist = ray->sdy - ray->ddy;// mayor que cero
+		ray->wall_dist = ray->sdy - ray->ddy;
 	ray->line_h = (int)(WIN_H / ray->wall_dist);
 	ray->draw_start = WIN_H / 2 - ray->line_h / 2;
 	if (ray->draw_start < 0)
@@ -96,13 +106,11 @@ static void	calc_column(t_game *game, t_ray *ray)
 		ray->wall_x = p->px + ray->wall_dist * ray->rdx;
 	ray->wall_x -= floor(ray->wall_x);
 }
- 
+
 void	cast_ray(t_game *game, t_ray *ray, int x)
 {
 	init_ray(game, ray, x);
 	init_step(game, ray);
 	dda_loop(game, ray);
 	calc_column(game, ray);
-	//if (x == WIN_W / 2)
-	//	printf("wall_dist=%.2f side=%d map=(%d,%d) wall_x=%.2f\n", ray->wall_dist, ray->side, ray->map_x, ray->map_y, ray->wall_x);
-} 
+}
