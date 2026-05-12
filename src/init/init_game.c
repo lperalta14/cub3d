@@ -52,5 +52,6 @@ int	init_game(t_game *game, t_scene *scene)
 	mlx_close_hook(game->mlx, on_close, game);
 	load_textures(game);
 	init_player(game);
+	game->mouse_x = WIN_W / 2;
 	return (1);
 }

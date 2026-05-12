@@ -25,10 +25,6 @@ int	main(int argc, char **argv)
 	}
 	scene = init(argv[1]);
 	//write(1, "llego1\n", 7);
-	//if (!scene.valid)
-	//{
-	//	return (1);
-	//}
 	if (!init_game(&game, &scene))
 	{
 		//write(1, "llego2\n", 7);
