@@ -101,6 +101,7 @@ typedef struct s_game
 	mlx_image_t	*img;
 	t_scene		*scene;
 	t_player	player;
+	int			mouse_x;
 }	t_game;
 
 //PARSING
