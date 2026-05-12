@@ -9,12 +9,12 @@ static mlx_texture_t	*get_texture(t_game *game, t_ray *ray)
 	if (ray->side == 0)
 	{
 		if (ray->step_x > 0)
-			return (tex->east.wall);
-		return (tex->west.wall);
+			return (tex->e.wall);
+		return (tex->w.wall);
 	}
 	if (ray->step_y > 0)
-		return (tex->south.wall);
-	return (tex->north.wall);
+		return (tex->s.wall);
+	return (tex->n.wall);
 }
  
 static void	calc_tex_x(t_ray *ray, mlx_texture_t *tex)
