@@ -1,0 +1,19 @@
+F 157,142,50
+NO ./texture/invierno.png
+SO ./texture/pantano.png
+
+         EA            ./texture/verANO.png
+
+C 0,0,0
+
+WE ./texture/otoño.png
+
+1111111111
+100000001
+1000N0001
+100000001
+1111111111111111111
+100000001
+10000001
+100000001
+111111111

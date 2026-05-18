@@ -1,0 +1,17 @@
+NO ./texture/psycodelic.png
+SO ./texture/psycodelic.png
+WE ./texture/psycodelic.png
+EA ./texture/psycodelic.png
+
+C 126,249,255
+F 157,0,255
+
+1111111111111111111
+10000000000000000N1
+1110111111111110111
+  101         101
+  101         101
+  101         101
+11101111111111101111
+10000000000000000001
+11111111111111111111
