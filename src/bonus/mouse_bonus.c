@@ -12,7 +12,6 @@
 
 #include "../../include/cubed_bonus.h"
 
-
 static void	rotate(t_player *p, double angle)
 {
 	double	old_dx;
