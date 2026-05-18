@@ -214,5 +214,3 @@ This project helped develop knowledge in:
 - Mathematical projections
 - Event-driven programming
 - Structured C development
-
-
