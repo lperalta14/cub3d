@@ -12,6 +12,20 @@
 
 #include "../../include/cubed_bonus.h"
 
+
+static void	rotate(t_player *p, double angle)
+{
+	double	old_dx;
+	double	old_cx;
+
+	old_dx = p->dx;
+	old_cx = p->cx;
+	p->dx = old_dx * cos(angle) - p->dy * sin(angle);
+	p->dy = old_dx * sin(angle) + p->dy * cos(angle);
+	p->cx = old_cx * cos(angle) - p->cy * sin(angle);
+	p->cy = old_cx * sin(angle) + p->cy * cos(angle);
+}
+
 void	handle_mouse(t_game *game)
 {
 	int		cur_x;
