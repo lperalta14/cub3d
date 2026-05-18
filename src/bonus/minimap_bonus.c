@@ -6,7 +6,7 @@
 /*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 19:42:59 by lperalta          #+#    #+#             */
-/*   Updated: 2026/05/12 19:44:48 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/14 15:56:35 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ static uint32_t	get_cell_color(t_game *game, int map_x, int map_y)
 	map = game->scene->map;
 	lines = game->scene->map_lines;
 	if (map_y < 0 || map_y >= lines)
-		return (0x222222FF);
+		return (0x4f16e1FF);
 	if (!map[map_y] || map_x < 0 || map_x >= (int)ft_strlen(map[map_y]))
-		return (0x222222FF);
+		return (0x4f16e1FF);
 	if (map[map_y][map_x] == '1')
-		return (0x888888FF);
+		return (0x222222FF);
 	return (0x444444FF);
 }
 

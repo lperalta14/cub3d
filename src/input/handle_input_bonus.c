@@ -51,19 +51,6 @@ static void	handle_move(t_game *game)
 		move(game, -p->dy * MOV_SPEED, p->dx * MOV_SPEED);
 }
 
-void	handle_mouse(t_game *game)
-{
-	int		cur_x;
-	int		cur_y;
-	double	delta;
-
-	mlx_get_mouse_pos(game->mlx, &cur_x, &cur_y);
-	delta = (cur_x - game->mouse_x) * ROT_SPEED * 0.1;
-	if (delta != 0)
-		rotate(&game->player, delta);
-	game->mouse_x = cur_x;
-}
-
 void	handle_input(t_game *game)
 {
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
