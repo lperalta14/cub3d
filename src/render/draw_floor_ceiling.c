@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_floor_ceiling.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 19:50:40 by lperalta          #+#    #+#             */
-/*   Updated: 2026/05/12 19:51:08 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/18 17:52:22 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

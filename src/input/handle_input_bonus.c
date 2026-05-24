@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperalta <lperalta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 19:47:53 by lperalta          #+#    #+#             */
-/*   Updated: 2026/05/12 19:48:12 by lperalta         ###   ########.fr       */
+/*   Updated: 2026/05/18 17:52:02 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

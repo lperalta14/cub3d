@@ -6,11 +6,11 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:01:58 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/11 18:47:23 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/18 17:47:17 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cubed.h"
+#include "../../include/cubed.h"
 
 int	cal_row(char **c_map)
 {

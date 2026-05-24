@@ -6,11 +6,11 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 17:46:04 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/11 18:01:04 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/18 20:56:42 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cubed.h"
+#include "../../include/cubed.h"
 
 static int	get_rgb(int r, int g, int b)
 {
@@ -24,6 +24,24 @@ static int	parse_colors(int primarycolor)
 	return (primarycolor);
 }
 
+static int	count_com(char *line)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (line[i])
+	{
+		if (line[i] == ',')
+			count++;
+		i++;
+	}
+	if (count == 2)
+		return (TRUE);
+	return (0);
+}
+
 int	in_colors(char *line, int *paint)
 {
 	char	**rgb;
@@ -31,7 +49,7 @@ int	in_colors(char *line, int *paint)
 	int		g;
 	int		b;
 
-	if (!line || !paint || *paint != -1)
+	if (!line || !paint || *paint != -1 || !count_com(line))
 		return (FALSE);
 	while (line && (*line == ' ' || *line == '\t'))
 		line++;

@@ -6,11 +6,11 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:34:07 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/11 18:35:32 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/24 19:34:16 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cubed.h"
+#include "../../include/cubed.h"
 
 static void	count_player_pos(t_scene *data)
 {
@@ -38,7 +38,7 @@ static void	count_player_pos(t_scene *data)
 		i++;
 	}
 	if (count != 1)
-		error_exit("Player problem \n", data);
+		error_exit("Invalid player configuration\n", data);
 }
 
 static t_scene	prep_init(t_scene data)
@@ -66,7 +66,7 @@ static int	openfile(char *filename)
 		error_exit("File is NULL\n", NULL);
 	fd = open(filename, O_RDONLY);
 	if (check_file(filename) == FALSE)
-		error_exit("File is grown", NULL);
+		error_exit("Invalid file extension\n", NULL);
 	if (fd < 0)
 		error_exit("Cannot open file\n", NULL);
 	return (fd);

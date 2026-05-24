@@ -1,10 +1,10 @@
 NO ./texture/bunker.png
 SO ./texture/bunker.png
-WE ./texture/bunker.png
 EA ./texture/rock.png
+WE ./texture/bunker.png
 
-F 80,255,90
-C 0,0,0
+F 80,255,90				
+C 0,0,0 
 
 
 111111111111111111111111111111

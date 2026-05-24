@@ -6,7 +6,7 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 18:42:15 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/11 21:21:58 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/18 17:54:07 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ typedef struct s_scene
 	int			floor;
 	int			ceiling;
 	t_position	play_post;
-//	bool		valid;
 }	t_scene;
 
 typedef struct s_player

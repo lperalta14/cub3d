@@ -6,11 +6,11 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 19:49:49 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/11 21:17:44 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/18 20:58:51 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cubed.h"
+#include "../../include/cubed.h"
 
 int	isdigit_str(char *str)
 {
@@ -23,7 +23,7 @@ int	isdigit_str(char *str)
 		return (FALSE);
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
+		if (!ft_isdigit(str[i]) && !ft_isspace(str[i]))
 			return (FALSE);
 		i++;
 	}

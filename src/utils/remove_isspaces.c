@@ -6,11 +6,11 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:17:26 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/11 21:18:16 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/18 17:48:35 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cubed.h"
+#include "../../include/cubed.h"
 
 char	*clean_line(char *line)
 {

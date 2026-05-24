@@ -6,11 +6,11 @@
 /*   By: anzarago <anzarago@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:25:49 by anzarago          #+#    #+#             */
-/*   Updated: 2026/05/11 18:31:06 by anzarago         ###   ########.fr       */
+/*   Updated: 2026/05/24 19:36:46 by anzarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cubed.h"
+#include "../../include/cubed.h"
 
 int	read_line_and_parse(t_scene *data, char *line)
 {
@@ -43,23 +43,23 @@ t_scene	extr_information(t_scene data, char *filename, int flag)
 	fd = 0;
 	if (!exist_text(&data.texture.n) || !exist_text(&data.texture.s)
 		|| !exist_text(&data.texture.w) || !exist_text(&data.texture.e))
-		error_exit("Missing textures\n", &data);
+		error_exit("Invalid texture configuration\n", &data);
 	if (data.ceiling < 0 || data.floor < 0)
-		error_exit("Missing colors\n", &data);
+		error_exit("Invalid color configuration\n", &data);
 	if (flag == 1)
-		error_exit("Unexpected information or structure in .cub\n", &data);
+		error_exit("Unexpected content or structure in .cub file\n", &data);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		error_exit("Cannot open file\n", &data);
 	if (!create_map(fd, &data))
 	{
 		close (fd);
-		error_exit("Error creating map\n", &data);
+		error_exit("Failed to create map\n", &data);
 	}
 	if (!data.map)
 	{
 		close(fd);
-		error_exit("No map found\n", &data);
+		error_exit("Map data not found\n", &data);
 	}
 	close (fd);
 	return (data);
