@@ -102,6 +102,6 @@ The code is organized into modules for parsing, initialization, rendering, input
 
 ## Authors
 
-**Luis Peralta** · [GitHub](https://github.com/lperalta14)
+**Luis Peralta** · [GitHub](https://github.com/lperalta14) · [LinkedIn](https://www.linkedin.com/in/lperaltamu%C3%B1oz/)
 
 **Ana Zaragoza** · 42 Málaga
