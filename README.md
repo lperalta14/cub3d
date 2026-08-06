@@ -1,216 +1,107 @@
-*This project has been created as part of the 42 curriculum by anzarago, lperalta*
-
 # cub3D
 
-## Description
+> A 3D raycasting engine written in C, inspired by Wolfenstein 3D.
 
-cub3D is a 42 graphics project inspired by the famous game Wolfenstein 3D. The goal of the project is to create a dynamic first-person view inside a maze using the raycasting technique.
+## About
 
-The project focuses on:
+cub3D is a graphics project developed as part of the 42 curriculum.
+It renders a first-person view of a maze from a 2D map using raycasting.
 
-- Real-time rendering
-- Raycasting mathematics
-- Event handling
-- Parsing and validation
-- Memory management
-- Graphics programming with MiniLibX / MLX42
-
-The player can move through a 2D map rendered as a pseudo-3D environment with textured walls, floor and ceiling colors, and smooth camera movement.
+The project focuses on real-time rendering, mathematical projections, map parsing, input handling and memory management.
 
 ## Features
 
-### Mandatory Part
+- Raycasting-based 3D rendering
+- Textured walls with directional textures
+- Configurable floor and ceiling colors
+- `.cub` map parsing and validation
+- Player movement with collision detection
+- Camera rotation
+- Error handling and resource cleanup
+- Bonus: minimap and mouse rotation
 
-- Raycasting engine
-- Directional wall textures (North, South, East, West)
-- Floor and ceiling colors
-- Keyboard movement with `W`, `A`, `S`, `D`
-- Camera rotation with arrow keys
-- `.cub` map parsing
-- Map validation
-- Error handling
-- Proper memory management
-- Clean window closing
+## Technologies
 
-### Bonus Part
+- **Language:** C
+- **Graphics:** MLX42
+- **Libraries:** Libft, GLFW, OpenGL
+- **Build:** Make, CMake
 
-- Minimap
-- Mouse rotation
-- Wall collision improvements
-
-## Instructions
+## Installation
 
 ### Requirements
 
-Before compiling the project, install:
-
-- CC or Clang
+- GCC or Clang
 - Make
 - CMake
-- GLFW
-- OpenGL dependencies
+- GLFW and required OpenGL dependencies
 
-### Linux Dependencies
-
-Ubuntu / Debian:
+On Ubuntu / Debian:
 
 ```bash
 sudo apt update
 sudo apt install build-essential cmake libglfw3-dev libx11-dev libxext-dev libbsd-dev
 ```
 
-### Compilation
-
-Compile mandatory part:
+### Build
 
 ```bash
 make
 ```
 
-Compile bonus part:
+For the bonus version:
 
 ```bash
 make bonus
 ```
 
-Clean object files:
+## Usage
 
-```bash
-make clean
-```
-
-Remove all generated files:
-
-```bash
-make fclean
-```
-
-Recompile project:
-
-```bash
-make re
-```
-
-## Execution
-
-Run the program with a valid `.cub` map:
+Run the program with a `.cub` map:
 
 ```bash
 ./cub3D maps/example.cub
 ```
 
-Example:
-
-```bash
-./cub3D maps/bunker.cub
-```
-
-## Controls
+### Controls
 
 | Key | Action |
-|------|--------|
-| W | Move forward |
-| S | Move backward |
-| A | Move left |
-| D | Move right |
-| ← / → | Rotate camera |
-| ESC | Exit program |
+| --- | --- |
+| `W` | Move forward |
+| `S` | Move backward |
+| `A` | Move left |
+| `D` | Move right |
+| `←` / `→` | Rotate camera |
+| `ESC` | Exit |
 
-## Map Format
+## Architecture
 
-Example of a valid `.cub` file:
-
-```txt
-NO ./textures/north.png
-SO ./textures/south.png
-WE ./textures/west.png
-EA ./textures/east.png
-
-F 220,100,0
-C 225,30,0
-
-111111111
-100000001
-101101001
-1000N0001
-111111111
+```text
+.cub map
+   │
+   ▼
+Parsing & Validation
+   │
+   ▼
+Game Initialization
+   │
+   ▼
+Input Handling
+   │
+   ▼
+Render Loop
+   │
+   ▼
+Raycasting (DDA)
+   │
+   ▼
+Wall Projection & Textures
 ```
 
-### Valid Map Characters
+The code is organized into modules for parsing, initialization, rendering, input handling and utilities.
 
-| Character | Meaning |
-|-----------|---------|
-| 1 | Wall |
-| 0 | Empty space |
-| N/S/E/W | Player spawn |
-| Space | Void area |
+## Authors
 
-## Error Handling
+**Luis Peralta** · [GitHub](https://github.com/lperalta14)
 
-The parser validates:
-
-- Invalid map characters
-- Invalid RGB values
-- Missing textures
-- Multiple player positions
-- Open maps
-- Invalid `.cub` files
-- Incorrect map configuration
-
-All errors return:
-
-```bash
-Error
-<description>
-```
-
-## Technical Overview
-
-The rendering engine uses the raycasting technique:
-
-1. Rays are cast from the player position.
-2. Wall intersections are calculated.
-3. Distances determine projected wall height.
-4. Texture slices are rendered vertically.
-
-This creates a pseudo-3D environment from a 2D map.
-
-## Resources
-
-### Raycasting
-
-- https://lodev.org/cgtutor/raycasting.html
-- https://permadi.com/1996/05/ray-casting-tutorial-table-of-contents/
-
-### MiniLibX / MLX42
-
-- https://github.com/codam-coding-college/MLX42
-- https://harm-smits.github.io/42docs/libs/minilibx
-
-### Mathematics
-
-- https://www.khanacademy.org/math/trigonometry
-
-## AI Usage
-
-AI tools were used as support during development for:
-
-- Understanding raycasting concepts
-- Reviewing parsing strategies
-- Debugging specific issues
-- Improving documentation
-- Clarifying mathematical calculations
-
-All generated content was reviewed, tested, and adapted manually before integration.
-
-## Learning Outcomes
-
-This project helped develop knowledge in:
-
-- Graphics programming
-- Real-time rendering
-- Parsing and validation
-- Memory management
-- Mathematical projections
-- Event-driven programming
-- Structured C development
+**Ana Zaragoza** · 42 Málaga
