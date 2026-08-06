@@ -35,12 +35,14 @@ The project focuses on real-time rendering, mathematical projections, map parsin
 - Make
 - CMake
 - GLFW and required OpenGL dependencies
-
+MLX42 is included in the repository and is built automatically by the Makefile
 On Ubuntu / Debian:
-
+ 
 ```bash
 sudo apt update
-sudo apt install build-essential cmake libglfw3-dev libx11-dev libxext-dev libbsd-dev
+sudo apt install build-essential cmake libglfw3-dev libx11-dev libxext-dev libbsd-dev libgl1-mesa-dev
+```
+
 ```
 
 ### Build
